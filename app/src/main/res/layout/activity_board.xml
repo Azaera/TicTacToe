@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.bjorn.tictactoe.Board">
+    android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
 
-</android.support.constraint.ConstraintLayout>
+    <TableRow
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:text=""
+            android:id="@+id/one"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dp"
+            android:gravity="center"/>
+
+        <Button
+            android:text=""
+            android:id="@+id/two"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+
+        <Button
+            android:text=""
+            android:id="@+id/three"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:text=""
+            android:id="@+id/four"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+
+        <Button
+            android:text=""
+            android:id="@+id/five"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#00FF00"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+
+        <Button
+            android:text=""
+            android:id="@+id/six"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:text=""
+            android:id="@+id/seven"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+
+        <Button
+            android:text=""
+            android:id="@+id/eight"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+
+        <Button
+            android:text=""
+            android:id="@+id/nine"
+            android:layout_weight="1"
+            android:background="@drawable/boardlayout"
+            android:textColor="#000000"
+            android:height="100dp"
+            android:padding="20dip"
+            android:gravity="center"/>
+    </TableRow>
+
+</TableLayout>
