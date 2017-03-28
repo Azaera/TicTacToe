@@ -120,7 +120,19 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:id="@+id/"/>
+            android:paddingLeft="5dp"
+            android:id="@+id/firstPlayer"
+            android:text="@string/playerOne"/>
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:id="@+id/secondPlayer"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:text="@string/playerTwo" />
 
     </TableRow>
 
