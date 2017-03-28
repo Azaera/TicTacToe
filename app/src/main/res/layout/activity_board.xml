@@ -2,7 +2,7 @@
 <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="350dp"
     android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
 
     <TableRow
@@ -111,6 +111,17 @@
             android:height="100dp"
             android:padding="20dip"
             android:gravity="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:id="@+id/"/>
+
     </TableRow>
 
 </TableLayout>

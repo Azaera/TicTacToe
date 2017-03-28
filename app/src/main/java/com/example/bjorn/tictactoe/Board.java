@@ -7,21 +7,30 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class Board extends AppCompatActivity implements View.OnClickListener{
+    private Button one;
+    private Button two;
+    private Button three;
+    private Button four;
+    private Button five;
+    private Button six;
+    private Button seven;
+    private Button eight;
+    private Button nine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
 
-        Button one = ( Button ) findViewById(R.id.one);
-        Button two = ( Button ) findViewById(R.id.two);
-        Button three = ( Button ) findViewById(R.id.three);
-        Button four = ( Button ) findViewById(R.id.four);
-        Button five = ( Button ) findViewById(R.id.five);
-        Button six = ( Button ) findViewById(R.id.six);
-        Button seven = ( Button ) findViewById(R.id.seven);
-        Button eight = ( Button ) findViewById(R.id.eight);
-        Button nine = ( Button ) findViewById(R.id.nine);
+        one = ( Button ) findViewById(R.id.one);
+        two = ( Button ) findViewById(R.id.two);
+        three = ( Button ) findViewById(R.id.three);
+        four = ( Button ) findViewById(R.id.four);
+        five = ( Button ) findViewById(R.id.five);
+        six = ( Button ) findViewById(R.id.six);
+        seven = ( Button ) findViewById(R.id.seven);
+        eight = ( Button ) findViewById(R.id.eight);
+        nine = ( Button ) findViewById(R.id.nine);
 
         one.setOnClickListener(this);
         two.setOnClickListener(this);
@@ -40,44 +49,96 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v){
+        boolean check = false;
         switch (v.getId()) {
 
             case R.id.one:
-                Toast.makeText(this, "Button 1", Toast.LENGTH_LONG).show();
-
+                check = isEmpty(one);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
 
             case R.id.two:
-                Toast.makeText(this, "Button 2", Toast.LENGTH_LONG).show();
-
+                check = isEmpty(two);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
+
             case R.id.three:
-                Toast.makeText(this, "Button 3", Toast.LENGTH_LONG).show();
+                check = isEmpty(three);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
 
             case R.id.four:
-                Toast.makeText(this, "Button 4", Toast.LENGTH_LONG).show();
+                check = isEmpty(four);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
 
             case R.id.five:
-                Toast.makeText(this, "Button 5", Toast.LENGTH_LONG).show();
+                check = isEmpty(five);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
 
             case R.id.six:
-                Toast.makeText(this, "Button 6", Toast.LENGTH_LONG).show();
+                check = isEmpty(six);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
 
             case R.id.seven:
-                Toast.makeText(this, "Button 7", Toast.LENGTH_LONG).show();
+                check = isEmpty(seven);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
 
             case R.id.eight:
-                Toast.makeText(this, "Button 8", Toast.LENGTH_LONG).show();
+                check = isEmpty(eight);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
 
             case R.id.nine:
-                Toast.makeText(this, "Button 9", Toast.LENGTH_LONG).show();
+                check = isEmpty(nine);
+                if ( check != true) {
+                    Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
+                } else {
+                    one.setText("X");
+                }
                 break;
         }
+    }
+
+    private boolean isEmpty(Button b) {
+        if (b.getText().toString().trim().length() > 0) {
+            return false;
+        }
+        return true;
     }
 }
