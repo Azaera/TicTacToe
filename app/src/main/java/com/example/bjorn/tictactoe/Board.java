@@ -24,47 +24,18 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
     private TextView playerOne;
     private TextView playerTwo;
     final Context context = this;
-    private int player = 0;
+    private int player = 1;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
 
-        playerOne = ( TextView ) findViewById(R.id.firstPlayer);
-        playerTwo = ( TextView ) findViewById(R.id.secondPlayer);
+  //      playerOne = ( TextView ) findViewById(R.id.firstPlayer);
+  //      playerTwo = ( TextView ) findViewById(R.id.secondPlayer);
 
-        //First player
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("PLAYERS");
-        builder.setMessage("Enter first players name");
-        final EditText input2 = new EditText(this);
-        builder.setView(input2);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String name1 = input2.getText().toString();
-                playerOne.setText(name1);
-            }
-        });
-        builder.create().show();
-
-        //Second player
-        AlertDialog.Builder builders = new AlertDialog.Builder(this);
-        builders.setTitle("PLAYERS");
-        builders.setMessage("Enter second players name");
-        final EditText input = new EditText(this);
-        builders.setView(input);
-
-        builders.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String name2 = input.getText().toString();
-                playerTwo.setText(name2);
-            }
-        });
-        builders.create().show();
 
         one = ( Button ) findViewById(R.id.one);
         two = ( Button ) findViewById(R.id.two);
@@ -85,15 +56,65 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
         seven.setOnClickListener(this);
         eight.setOnClickListener(this);
         nine.setOnClickListener(this);
+
+        playersTurn();
     }
 
     public Board() {
 
     }
+/*
+    public String players(int i) {
+        if ( i == 1) {
+            name = "";
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("PLAYERS");
+            builder.setMessage("Enter first players name");
+            final EditText input2 = new EditText(this);
+            builder.setView(input2);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String name1 = input2.getText().toString();
+                    name = name1;
+                }
+            });
+            player++;
+            builder.create().show();
+        } else {
+            AlertDialog.Builder builders = new AlertDialog.Builder(this);
+            builders.setTitle("PLAYERS");
+            builders.setMessage("Enter second players name");
+            final EditText input = new EditText(this);
+            builders.setView(input);
+
+            builders.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String name2 = input.getText().toString();
+                    name = name2;
+                }
+            });
+            player++;
+            builders.create().show();
+        }
+        return name;
+    }
+*/
+    private void playersTurn() {
+        //true for player 1, false for player 2;
+        if (player == 1){
+            Toast.makeText(context, " Player 1's turn.", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, " Player 2's turn.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public void onClick(View v){
         boolean check = false;
+
         switch (v.getId()) {
 
             case R.id.one:
@@ -101,7 +122,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        one.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        one.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -110,7 +139,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        two.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        two.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -119,7 +156,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        three.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        three.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -128,7 +173,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        four.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        four.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -137,7 +190,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        five.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        five.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -146,7 +207,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        six.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        six.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -155,7 +224,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        seven.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        seven.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -164,7 +241,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        eight.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        eight.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
 
@@ -173,7 +258,15 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
                 if ( check != true) {
                     Toast.makeText(this, "Button unavailable", Toast.LENGTH_LONG).show();
                 } else {
-                    one.setText("X");
+                    if (player == 1) {
+                        nine.setText("X");
+                        player = 2;
+                        playersTurn();
+                    } else {
+                        nine.setText("O");
+                        player = 1;
+                        playersTurn();
+                    }
                 }
                 break;
         }
@@ -184,5 +277,9 @@ public class Board extends AppCompatActivity implements View.OnClickListener{
             return false;
         }
         return true;
+    }
+
+    private void winner() {
+
     }
 }
