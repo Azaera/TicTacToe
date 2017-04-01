@@ -4,58 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background = "#7CFC00"
     tools:context="com.example.bjorn.tictactoe.StartGame">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView"
+        android:textAlignment="center"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
         android:fontFamily="cursive"
+        android:text="@string/app_name"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111"
-        android:id="@+id/textView" />
+        app:layout_constraintVertical_bias="0.111" />
 
     <Button
         android:id="@+id/onePlayer"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/onePlayer"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="61dp"
+        android:width="100dp"
+        android:text="@string/onePlayer"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="62dp"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/twoPlayer"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/twoPlayer"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="41dp"
-        app:layout_constraintTop_toBottomOf="@+id/onePlayer"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="41dp"
+        android:text="@string/twoPlayer"
         app:layout_constraintBottom_toTopOf="@+id/highscore"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onePlayer"
         app:layout_constraintVertical_bias="0.045" />
 
     <Button
         android:id="@+id/highscore"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/highscore"
+        android:layout_marginBottom="140dp"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/highscore"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="140dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
