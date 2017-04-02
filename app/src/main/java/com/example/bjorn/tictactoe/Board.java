@@ -11,6 +11,7 @@ import android.widget.*;
 public class Board extends AppCompatActivity implements View.OnClickListener {
 
     private Button one, two, three, four, five, six, seven, eight, nine;
+    private int empty = 9;
     private boolean currentPlayer = true, winner = false;
     private final Context context = this;
     private AlertDialog.Builder alert;
@@ -70,9 +71,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         one.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         one.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -83,9 +86,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         two.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         two.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -96,9 +101,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         three.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         three.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -109,9 +116,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         four.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         four.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -122,9 +131,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         five.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         five.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -135,9 +146,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         six.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         six.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -148,9 +161,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         seven.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         seven.setText("O");
                         nextPlayer ();
+                        empty--;
                     }
                 }
                 break;
@@ -161,9 +176,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         eight.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         eight.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -174,9 +191,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                     if (currentPlayer == true) {
                         nine.setText("X");
                         nextPlayer();
+                        empty--;
                     } else {
                         nine.setText("O");
                         nextPlayer();
+                        empty--;
                     }
                 }
                 break;
@@ -266,6 +285,10 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         } else if (seven.getText().toString().equals("O") && five.getText().toString().equals("O") && three.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
             winner = true;
+        }
+        if ( empty == 0){
+            Toast.makeText(this, "It's a draw!", Toast.LENGTH_SHORT).show();
+            winner=true;
         }
     }
 
