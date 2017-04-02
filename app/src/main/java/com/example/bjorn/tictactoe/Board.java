@@ -8,6 +8,7 @@ import android.widget.*;
 public class Board extends AppCompatActivity implements View.OnClickListener {
 
     private Button one, two, three, four, five, six, seven, eight, nine;
+    private boolean currentPlayer = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,33 +44,132 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.one :
-                one.setText("X");
+                if ( one.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        one.setText("X");
+                        nextPlayer();
+                    } else {
+                        one.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
             case R.id.two :
-                two.setText("X");
+                if ( two.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        two.setText("X");
+                        nextPlayer();
+                    } else {
+                        two.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
             case R.id.three :
-                three.setText("O");
+                if ( three.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        three.setText("X");
+                        nextPlayer();
+                    } else {
+                        three.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
             case R.id.four :
-                four.setText("X");
+                if ( four.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        four.setText("X");
+                        nextPlayer();
+                    } else {
+                        four.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
             case R.id.five :
-                five.setText("O");
+                if ( five.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        five.setText("X");
+                        nextPlayer();
+                    } else {
+                        five.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
             case R.id.six :
-                six.setText("X");
+                if ( six.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        six.setText("X");
+                        nextPlayer();
+                    } else {
+                        six.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
             case R.id.seven :
-                seven.setText("O");
+                if ( seven.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        seven.setText("X");
+                        nextPlayer();
+                    } else {
+                        seven.setText("O");
+                        nextPlayer ();
+                    }
+                }
                 break;
             case R.id.eight :
-                eight.setText("X");
+                if ( eight.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        eight.setText("X");
+                        nextPlayer();
+                    } else {
+                        eight.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
             case R.id.nine :
-                nine.setText("O");
+                if ( nine.getText().toString().trim().length() > 0){
+                    Toast.makeText(this, "Button not available!", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (currentPlayer == true) {
+                        nine.setText("X");
+                        nextPlayer();
+                    } else {
+                        nine.setText("O");
+                        nextPlayer();
+                    }
+                }
                 break;
 
         }
+    }
+
+    private boolean nextPlayer() {
+        if ( currentPlayer == true) {
+            currentPlayer = false;
+        } else {
+            currentPlayer = true;
+        }
+        return currentPlayer;
     }
 }
