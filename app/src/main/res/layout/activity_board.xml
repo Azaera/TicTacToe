@@ -136,4 +136,51 @@
 
     </TableRow>
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="10dp"
+            android:id="@+id/firstPlayerWins"
+            android:text="@string/playerOneWins"/>
+
+        <TextView
+            android:id="@+id/winCount1"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="0"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="10dp"
+            android:id="@+id/draw"
+            android:text="@string/draw"/>
+
+        <TextView
+            android:id="@+id/drawCount"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="10dp"
+            android:text="0"/>
+
+        <TextView
+            android:id="@+id/secondPlayerWins"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="10dp"
+            android:text="@string/playerTwoWins" />
+
+        <TextView
+            android:id="@+id/winCount2"
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:textSize="10dp"
+            android:text="0"/>
+    </TableRow>
+
 </TableLayout>

@@ -11,10 +11,13 @@ import android.widget.*;
 public class Board extends AppCompatActivity implements View.OnClickListener {
 
     private Button one, two, three, four, five, six, seven, eight, nine;
+    private TextView winCountF, winCountS, drawC, playerOne, playerTwo;
     private int empty = 9;
+    private int playerOneWins = 0, playerTwoWins = 0, draws = 0;
     private boolean currentPlayer = true, winner = false;
     private final Context context = this;
-    private AlertDialog.Builder alert;
+    private AlertDialog.Builder alert, players;
+    private String tmp, player1, player2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +34,18 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         eight = ( Button ) findViewById(R.id.eight);
         nine = ( Button ) findViewById(R.id.nine);
 
+        winCountF = ( TextView ) findViewById(R.id.winCount1);
+        winCountS = ( TextView ) findViewById(R.id.winCount2);
+        drawC = ( TextView ) findViewById(R.id.drawCount);
+
+        playerOne = ( TextView ) findViewById(R.id.firstPlayer);
+        playerTwo = ( TextView ) findViewById(R.id.secondPlayer);
+
         initiate();
     }
 
     public void initiate() {
+        playerNames();
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
@@ -44,7 +55,50 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         seven.setOnClickListener(this);
         eight.setOnClickListener(this);
         nine.setOnClickListener(this);
+        winCountF.setText("0");
+        winCountS.setText("0");
+        drawC.setText("0");
+    }
 
+    private void playerNames() {
+        for (int i = 1; i <= 2; i++) {
+            players = new AlertDialog.Builder(context);
+            players.setTitle("Who's Playing");
+            final EditText input = new EditText(this);
+            if (i == 1) {
+                players.setMessage("Player one's name?")
+                        .setView(input)
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                tmp = input.getText().toString();
+                                player1 = tmp;
+                                playerOne.setText(player1);
+                            }
+
+                        }).create();
+                players.show();
+            } else
+            {
+
+                players.setMessage("Player two's name?")
+                        .setView(input)
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                tmp = input.getText().toString();
+                                player2 = tmp;
+                                playerTwo.setText(player2);
+                            }
+
+                        }).create();
+                players.show();
+            }
+        }
     }
 
     private void resetGame() {
@@ -59,6 +113,11 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         nine.setText("");
         currentPlayer = true;
         winner = false;
+        empty = 9;
+        winCountF.setText("" + playerOneWins);
+        winCountS.setText(""+ playerTwoWins);
+        drawC.setText(""+ draws);
+
     }
 
     public void onClick(View v) {
@@ -206,6 +265,9 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
 
     private void finishGame() {
         if (winner == true) {
+            if ( currentPlayer == true ) {
+            } else if ( currentPlayer == false ) {
+            }
             alert = new AlertDialog.Builder(context);
             alert.setTitle("Game Finished");
             alert.setMessage("Want to play another game?")
@@ -232,62 +294,80 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
     private void isWinning() {
         if (one.getText().toString().equals("X") && two.getText().toString().equals("X") && three.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (one.getText().toString().equals("O") && two.getText().toString().equals("O") && three.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+
+            playerTwoWins++;
             winner = true;
         }
         if (one.getText().toString().equals("X") && four.getText().toString().equals("X") && seven.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (one.getText().toString().equals("O") && four.getText().toString().equals("O") && seven.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+            playerTwoWins++;
             winner = true;
         }
         if (two.getText().toString().equals("X") && five.getText().toString().equals("X") && eight.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (two.getText().toString().equals("O") && five.getText().toString().equals("O") && eight.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+            playerTwoWins++;
             winner = true;
         }
         if (three.getText().toString().equals("X") && six.getText().toString().equals("X") && nine.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (three.getText().toString().equals("O") && six.getText().toString().equals("O") && nine.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+            playerTwoWins++;
             winner = true;
         }
         if (four.getText().toString().equals("X") && five.getText().toString().equals("X") && six.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (four.getText().toString().equals("O") && five.getText().toString().equals("O") && six.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+            playerTwoWins++;
             winner = true;
         }
         if (seven.getText().toString().equals("X") && eight.getText().toString().equals("X") && nine.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (seven.getText().toString().equals("O") && eight.getText().toString().equals("O") && nine.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+            playerTwoWins++;
             winner = true;
         }
         if (one.getText().toString().equals("X") && five.getText().toString().equals("X") && nine.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (one.getText().toString().equals("O") && five.getText().toString().equals("O") && nine.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+            playerTwoWins++;
             winner = true;
         }
         if (seven.getText().toString().equals("X") && five.getText().toString().equals("X") && three.getText().toString().equals("X")) {
             Toast.makeText(this, "Player 1 wins", Toast.LENGTH_SHORT).show();
+            playerOneWins++;
             winner = true;
         } else if (seven.getText().toString().equals("O") && five.getText().toString().equals("O") && three.getText().toString().equals("O")) {
             Toast.makeText(this, "Player 2 wins", Toast.LENGTH_SHORT).show();
+            playerTwoWins++;
             winner = true;
         }
         if ( empty == 0){
             Toast.makeText(this, "It's a draw!", Toast.LENGTH_SHORT).show();
+            draws++;
             winner=true;
         }
     }
