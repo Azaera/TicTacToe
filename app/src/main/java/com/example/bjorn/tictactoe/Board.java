@@ -11,13 +11,13 @@ import android.widget.*;
 public class Board extends AppCompatActivity implements View.OnClickListener {
 
     private Button one, two, three, four, five, six, seven, eight, nine;
-    private TextView winCountF, winCountS, drawC, playerOne, playerTwo;
+    private TextView winCountF, winCountS, drawC, playerOne, playerTwo, player1Wins, player2Wins;
     private int empty = 9;
     private int playerOneWins = 0, playerTwoWins = 0, draws = 0;
     private boolean currentPlayer = true, winner = false;
     private final Context context = this;
     private AlertDialog.Builder alert, players;
-    private String tmp, player1, player2;
+    private String tmp, player1 = "Player 1", player2 = "Player 2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,8 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
 
         playerOne = ( TextView ) findViewById(R.id.firstPlayer);
         playerTwo = ( TextView ) findViewById(R.id.secondPlayer);
+        player1Wins = ( TextView ) findViewById(R.id.firstPlayerWins);
+        player2Wins = ( TextView ) findViewById(R.id.secondPlayerWins);
 
         initiate();
     }
@@ -55,6 +57,8 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
         seven.setOnClickListener(this);
         eight.setOnClickListener(this);
         nine.setOnClickListener(this);
+        player1Wins.setText("");
+        player2Wins.setText("");
         winCountF.setText("0");
         winCountS.setText("0");
         drawC.setText("0");
@@ -76,6 +80,7 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                                 tmp = input.getText().toString();
                                 player2 = tmp;
                                 playerTwo.setText(player2);
+                                player2Wins.setText(player2 + "'s wins:");
                             }
 
                         }).create();
@@ -93,6 +98,7 @@ public class Board extends AppCompatActivity implements View.OnClickListener {
                                 tmp = input.getText().toString();
                                 player1 = tmp;
                                 playerOne.setText(player1);
+                                player1Wins.setText(player1 + "'s wins:");
                             }
 
                         }).create();
